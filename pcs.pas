@@ -519,9 +519,8 @@ end;
 
 procedure Twindow.parseConfigFile;
 var
-  config: TStringList;
+  config, value: TStringList;
   c: integer;
-  value: TStringList;
 begin
   config:=TStringList.create;
   {$IFDEF WINDOWS}
@@ -551,12 +550,7 @@ begin
     end;
     c:=c+1;
   end;
-  {$IFDEF WINDOWS}
-    checkNetworkConnection;
-  {$ENDIF}
-  {$IFDEF LINUX}
-    trueNetworkResult;
-  {$ENDIF}
+  checkNetworkConnection;
 end;
 
 procedure Twindow.loadConfig;
