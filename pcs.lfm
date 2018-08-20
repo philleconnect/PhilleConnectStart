@@ -11,7 +11,7 @@ object window: Twindow
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
   OnKeyDown = FormKeyDown
-  LCLVersion = '1.8.2.0'
+  LCLVersion = '1.8.4.0'
   WindowState = wsMaximized
   object logo: TImage
     Left = 8
@@ -743,7 +743,7 @@ object window: Twindow
     Left = 8
     Height = 15
     Top = 665
-    Width = 120
+    Width = 119
     Anchors = [akLeft, akBottom]
     Caption = 'Verbindungsversuch: 0'
     Font.Color = clWhite
@@ -755,7 +755,7 @@ object window: Twindow
     Left = 200
     Height = 68
     Top = 256
-    Width = 609
+    Width = 608
     Caption = 'Keine Netzwerkverbindung'
     Font.Color = clWhite
     Font.Height = -51

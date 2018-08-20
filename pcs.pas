@@ -151,22 +151,22 @@ var
   version, build: string;
 begin
   version:='1.4';
-  build:='1E045';
+  //build:='1E045';
   allowOffline:=false;
   networkRetry:=30;
   actualNetworkRetry:=1;
   isOnline:=false;
   {$IFDEF WIN64}
-    versionLabel.Caption:='PhilleConnect LoginClient Win64 v'+version+' Build '+build+' by Johannes Kreutz';
+    versionLabel.Caption:='PhilleConnect LoginClient Win64 v'+version+' by Johannes Kreutz';
   {$ENDIF}
   {$IFDEF WIN32}
-    versionLabel.Caption:='PhilleConnect LoginClient Win32 v'+version+' Build '+build+' by Johannes Kreutz';
+    versionLabel.Caption:='PhilleConnect LoginClient Win32 v'+version+' by Johannes Kreutz';
   {$ENDIF}
   {$IFDEF LINUX}
-    versionLabel.Caption:='PhilleConnect LoginClient Linux v'+version+' Build '+build+' by Johannes Kreutz';
+    versionLabel.Caption:='PhilleConnect LoginClient Linux v'+version+' by Johannes Kreutz';
   {$ENDIF}
   {$IFDEF DARWIN}
-    versionLabel.Caption:='PhilleConnect LoginClient macOS v'+version+' Build '+build+' by Johannes Kreutz';
+    versionLabel.Caption:='PhilleConnect LoginClient macOS v'+version+' by Johannes Kreutz';
   {$ENDIF}
   {$IFDEF WINDOWS}
     lock:=TLockCAENTF.create;

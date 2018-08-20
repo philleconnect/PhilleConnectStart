@@ -66,17 +66,17 @@
         <UnitName Value="UPingThread"/>
       </Unit5>
       <Unit6>
-        <Filename Value="../../../Downloads/synapse-trunk/ssl_openssl.pas"/>
-        <IsPartOfProject Value="True"/>
-      </Unit6>
-      <Unit7>
-        <Filename Value="../../../Downloads/synapse-trunk/ssl_openssl_lib.pas"/>
-        <IsPartOfProject Value="True"/>
-      </Unit7>
-      <Unit8>
         <Filename Value="urequestthread.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="URequestThread"/>
+      </Unit6>
+      <Unit7>
+        <Filename Value="../synalist-code-r207-trunk/ssl_openssl.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit7>
+      <Unit8>
+        <Filename Value="../synalist-code-r207-trunk/ssl_openssl_lib.pas"/>
+        <IsPartOfProject Value="True"/>
       </Unit8>
     </Units>
   </ProjectOptions>
@@ -87,7 +87,7 @@
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
-      <OtherUnitFiles Value="../../../Downloads/synapse-trunk"/>
+      <OtherUnitFiles Value="../synalist-code-r207-trunk"/>
       <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
     <CodeGeneration>
