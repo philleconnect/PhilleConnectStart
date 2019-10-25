@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CONFIG>
   <ProjectOptions>
-    <Version Value="10"/>
+    <Version Value="11"/>
     <General>
       <SessionStorage Value="InProjectDir"/>
       <MainUnit Value="0"/>
@@ -20,19 +20,17 @@
       <Version Value="2"/>
     </PublishOptions>
     <RunParams>
-      <local>
-        <FormatVersion Value="1"/>
-      </local>
+      <FormatVersion Value="2"/>
+      <Modes Count="1">
+        <Mode0 Name="default"/>
+      </Modes>
     </RunParams>
-    <RequiredPackages Count="2">
+    <RequiredPackages Count="1">
       <Item1>
-        <PackageName Value="laz_synapse"/>
-      </Item1>
-      <Item2>
         <PackageName Value="LCL"/>
-      </Item2>
+      </Item1>
     </RequiredPackages>
-    <Units Count="9">
+    <Units Count="8">
       <Unit0>
         <Filename Value="PhilleConnectStart.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -46,38 +44,33 @@
         <UnitName Value="PCS"/>
       </Unit1>
       <Unit2>
-        <Filename Value="ulockcaentf.pas"/>
-        <IsPartOfProject Value="True"/>
-        <UnitName Value="ULockCAENTF"/>
-      </Unit2>
-      <Unit3>
         <Filename Value="ugetmacadress.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UGetMacAdress"/>
-      </Unit3>
-      <Unit4>
+      </Unit2>
+      <Unit3>
         <Filename Value="ugetipadress.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UGetIPAdress"/>
-      </Unit4>
-      <Unit5>
+      </Unit3>
+      <Unit4>
         <Filename Value="upingthread.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="UPingThread"/>
-      </Unit5>
-      <Unit6>
+      </Unit4>
+      <Unit5>
         <Filename Value="urequestthread.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="URequestThread"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="../synalist-code-r209-trunk/ssl_openssl_lib.pas"/>
+        <IsPartOfProject Value="True"/>
       </Unit6>
       <Unit7>
-        <Filename Value="../synalist-code-r207-trunk/ssl_openssl.pas"/>
+        <Filename Value="../synalist-code-r209-trunk/ssl_openssl.pas"/>
         <IsPartOfProject Value="True"/>
       </Unit7>
-      <Unit8>
-        <Filename Value="../synalist-code-r207-trunk/ssl_openssl_lib.pas"/>
-        <IsPartOfProject Value="True"/>
-      </Unit8>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
@@ -87,7 +80,7 @@
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
-      <OtherUnitFiles Value="../synalist-code-r207-trunk"/>
+      <OtherUnitFiles Value="../synalist-code-r209-trunk"/>
       <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
     <CodeGeneration>

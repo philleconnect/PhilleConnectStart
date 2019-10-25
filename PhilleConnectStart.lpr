@@ -7,8 +7,8 @@ uses
   cthreads,
   {$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, PCS, ULockCAENTF, ugetmacadress, ugetipadress, UPingThread,
-  URequestThread;
+  Forms, PCS, ugetmacadress, ugetipadress, UPingThread,
+  URequestThread, ssl_openssl_lib;
 
 {$R *.res}
 

@@ -1,4 +1,4 @@
-//Copyright 2016-2018 Johannes Kreutz.
+//Copyright 2016-2019 Johannes Kreutz.
 //Alle Rechte vorbehalten.
 unit PCS;
 
@@ -150,7 +150,7 @@ procedure Twindow.FormCreate(Sender: TObject);
 var
   version, build: string;
 begin
-  version:='1.4';
+  version:='1.5';
   //build:='1E045';
   allowOffline:=false;
   networkRetry:=30;
@@ -169,7 +169,6 @@ begin
     versionLabel.Caption:='PhilleConnect LoginClient macOS v'+version+' by Johannes Kreutz';
   {$ENDIF}
   {$IFDEF WINDOWS}
-    lock:=TLockCAENTF.create;
     keyboardHook(true);
   {$ENDIF}
   {$IFDEF LINUX}
@@ -197,8 +196,6 @@ end;
 procedure Twindow.FormCloseQuery(Sender: TObject; var CanClose: boolean);
 begin
   {$IFDEF WINDOWS}
-    lock.disable;
-    lock.free;
     keyboardHook(false);
   {$ENDIF}
 end;
@@ -314,43 +311,43 @@ var
   credentials: TStringList;
 begin
   loginProgress.position:=80;
-    //Login erfolgreich
-    if (response = '0') then begin
-      shutdownTimer.enabled:=false;
-      loginProgress.visible:=false;
-      actionLabel.caption:=success;
-      actionLabel.font.color:=clGreen;
-      //Nutzerdaten für DRIVE speichern
-      credentials:=TStringList.create;
-      credentials.add(XOREncode(mac, uname.text));
-      credentials.add(XOREncode(mac, passwd.text));
-      {$IFDEF WINDOWS}
-        credentials.saveToFile(getUserDir+'login.jkm');
-      {$ENDIF}
-      {$IFDEF LINUX}
-        credentials.saveToFile('/tmp/login.jkm');
-      {$ENDIF}
-      credentials.free;
-      uname.text:='';
-      passwd.text:='';
-      successTimer.enabled:=true;
-    end
-    //Login nicht erfolgreich
-    else begin
-      loginProgress.visible:=false;
-      if (actualShutdown < 60) then begin
-        actualShutdown:=180;
-      end;
-      uname.readOnly:=false;
-      passwd.readOnly:=false;
-      passwd.text:='';
-      if (response = '1') then begin
-        actionLabel.caption:=wrongCredentials;
-      end
-      else if (response = '2') or (response = '') then begin
-        actionLabel.caption:=loginFailed;
-      end;
+  //Login erfolgreich
+  if (response = '0') then begin
+    shutdownTimer.enabled:=false;
+    loginProgress.visible:=false;
+    actionLabel.caption:=success;
+    actionLabel.font.color:=clGreen;
+    //Nutzerdaten für DRIVE speichern
+    credentials:=TStringList.create;
+    credentials.add(XOREncode(mac, uname.text));
+    credentials.add(XOREncode(mac, passwd.text));
+    {$IFDEF WINDOWS}
+      credentials.saveToFile(getUserDir+'login.jkm');
+    {$ENDIF}
+    {$IFDEF LINUX}
+      credentials.saveToFile('/tmp/login.jkm');
+    {$ENDIF}
+    credentials.free;
+    uname.text:='';
+    passwd.text:='';
+    successTimer.enabled:=true;
+  end
+  //Login nicht erfolgreich
+  else begin
+    loginProgress.visible:=false;
+    if (actualShutdown < 60) then begin
+      actualShutdown:=180;
     end;
+    uname.readOnly:=false;
+    passwd.readOnly:=false;
+    passwd.text:='';
+    if (response = '1') then begin
+      actionLabel.caption:=wrongCredentials;
+    end
+    else if (response = '2') or (response = '') then begin
+      actionLabel.caption:=loginFailed;
+    end;
+  end;
 end;
 
 procedure Twindow.loadUsers;
@@ -368,8 +365,6 @@ begin
   if (response = '') then begin
     if (allowOffline) then begin
       {$IFDEF WINDOWS}
-        lock.disable;
-        lock.free;
         keyboardHook(false);
       {$ENDIF}
       halt;
@@ -383,8 +378,6 @@ begin
   else if (response = '!') then begin
     showMessage('Konfigurationsfehler. Programm wird beendet.');
     {$IFDEF WINDOWS}
-      lock.disable;
-      lock.free;
       keyboardHook(false);
     {$ENDIF}
     halt;
@@ -584,8 +577,6 @@ begin
   if (response = '!') then begin
     showMessage('Konfigurationsfehler. Programm wird beendet.');
     {$IFDEF WINDOWS}
-      lock.disable;
-      lock.free;
       keyboardHook(false);
     {$ENDIF}
     halt;
@@ -593,8 +584,6 @@ begin
   else if (response = 'nomachine') then begin
     showMessage('Rechner nicht registriert. Programm wird beendet.');
     {$IFDEF WINDOWS}
-      lock.disable;
-      lock.free;
       keyboardHook(false);
     {$ENDIF}
     halt;
@@ -648,8 +637,6 @@ procedure Twindow.handleNoNetwork;
 begin
   if (allowOffline) then begin
     {$IFDEF WINDOWS}
-      lock.disable;
-      lock.free;
       keyboardHook(false);
     {$ENDIF}
     halt;
@@ -756,8 +743,6 @@ procedure Twindow.setAllowNoLogin(value: string);
 begin
   if (value = 'noPasswordRequired') then begin
     {$IFDEF WINDOWS}
-      lock.disable;
-      lock.free;
       keyboardHook(false);
     {$ENDIF}
     halt;
