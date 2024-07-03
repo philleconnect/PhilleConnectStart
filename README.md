@@ -1,3 +1,5 @@
+__Archived: Not actively maintained anymore!__
+
 # PhilleConnectStart
 This is the Login application of PhilleConnect. It will start before the desktop and present the login screen to the user.
 
